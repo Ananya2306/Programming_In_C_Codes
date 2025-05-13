@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>C Programming Interactive Codes</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  body {
+    background: #1e2a38;
+    color: #e0e6f0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+  }
+  .container {
+    max-width: 900px;
+    margin: 40px auto;
+    background: #283a50;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+    padding: 30px 25px;
+  }
+  h1 {
+    text-align: center;
+    color: #f0f8ff;
+    margin-bottom: 40px;
+    font-weight: 700;
+    text-shadow: 0 0 8px #00bfff;
+  }
+  .qa-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .qa-item {
+    margin-bottom: 16px;
+    border-radius: 10px;
+    background: #324a6e;
+    box-shadow: inset 0 0 8px #1f2f48;
+    overflow: hidden;
+  }
+  .qa-question {
+    cursor: pointer;
+    padding: 18px 24px;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #cce6ff;
+    border: none;
+    background: linear-gradient(90deg, #2a3b54, #3c5a8a);
+    width: 100%;
+    text-align: left;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background 0.3s ease;
+    user-select: none;
+  }
+  .qa-question:hover,
+  .qa-question:focus {
+    background: linear-gradient(90deg, #1e90ff, #3c5a8a);
+    color: #e0f0ff;
+    box-shadow: 0 0 12px #1e90ff;
+  }
+  .qa-question .icon {
+    font-weight: 900;
+    font-size: 1.4rem;
+    color: #a0c8ff;
+    transition: transform 0.3s ease;
+    user-select: none;
+  }
+  .qa-question.active .icon {
+    transform: rotate(45deg);
+    color: #00bfff;
+  }
+  .qa-answer {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 24px;
+    background: #1f2f48;
+    color: #dbe9ff;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+    border-top: 2px solid #0a74da;
+  }
+  .qa-answer.open {
+    padding: 18px 24px 24px;
+    max-height: 1500px;
+  }
+  pre {
+    background: #0a2342;
+    color: #a9d1ff;
+    padding: 16px 20px;
+    border-radius: 8px;
+    font-family: 'Fira Mono', 'Consolas', monospace;
+    font-size: 0.95rem;
+    overflow-x: auto;
+    margin: 0;
+    user-select: text;
+  }
+  .output {
+    background: #0f3f6e;
+    color: #b6e3ff;
+    border-left: 5px solid #00bfff;
+    padding: 12px 18px;
+    margin-top: 14px;
+    border-radius: 6px;
+    font-family: 'Fira Mono', 'Consolas', monospace;
+    font-size: 0.95rem;
+    white-space: pre-wrap;
+  }
+  small {
+    font-weight: 400;
+    font-size: 0.85rem;
+    color: #a0b8d6;
+  }
+  @media (max-width: 600px) {
+    .container {
+      margin: 20px 10px;
+      padding: 20px 15px;
+    }
+    .qa-question {
+      font-size: 1rem;
+      padding: 14px 18px;
+    }
+    .qa-answer {
+      font-size: 0.9rem;
+      padding: 0 18px;
+    }
+    .qa-answer.open {
+      padding: 14px 18px 20px;
+    }
+    pre {
+      font-size: 0.9rem;
+      padding: 12px 14px;
+    }
+    .output {
+      font-size: 0.9rem;
+      padding: 10px 14px;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>C Programming Interactive Codes</h1>
+  <ul class="qa-list">
+    <!-- 1 -->
+    <li class="qa-item">
+      <button class="qa-question" aria-expanded="false">
+        1. Print "Hello World"
+        <span class="icon">+</span>
+      </button>
+      <div class="qa-answer" aria-hidden="true">
+<pre>
+#include &lt;stdio.h&gt;
+int main() {
+    printf("Hello, World!\n");
+    return 0;
+}
+</pre>
+<div class="output">Output:<br>Hello, World!</div>
+      </div>
+    </li>
+    <!-- 2 -->
+    <li class="qa-item">
+      <button class="qa-question" aria-expanded="false">
+        2. Print your name
+        <span class="icon">+</span>
+      </button>
+      <div class="qa-answer" aria-hidden="true">
+<pre>
+#include &lt;stdio.h&gt;
+int main() {
+    printf("My name is John Doe\n");
+    return 0;
+}
+</pre>
+<div class="output">Output:<br>My name is John Doe</div>
+      </div>
+    </li>
+    <!-- 3 -->
+    <li class="qa-item">
+      <button class="qa-question" aria-expanded="false">
+        3. Print your name &amp; your father's name
+        <span class="icon">+</span>
+      </button>
+      <div class="qa-answer" aria-hidden="true">
+<pre>
+#include &lt;stdio.h&gt;
+int main() {
+    printf("My name is John Doe\n");
+    printf("My father's name is Richard Doe\n");
+    return 0;
+}
+</pre>
+<div class="output">Output:<br>My name is John Doe<br>My father's name is Richard Doe</div>
+      </div>
+    </li>
+    <!-- 4 -->
+    <li class="qa-item">
+      <button class="qa-question" aria-expanded="false">
+        4. Print personal details
+        <span class="icon">+</span>
+      </button>
+      <div class="qa-answer" aria-hidden="true">
+<pre>
+#include &lt;stdio.h&gt;
+int main() {
+    printf("Name: John Doe\n");
+    printf("Age: 20\n");
+    printf("Address: 123 Main Street\n");
+    printf("Phone: 1234567890\n");
+    return 0;
+}
+</pre>
+<div class="output">Output:<br>Name: John Doe<br>Age: 20<br>Address: 123 Main Street<br>Phone: 1234567890</div>
+      </div>
+    </li>
+    <!-- 5 -->
+    <li class="qa-item">
+      <button class="qa-question" aria-expanded="false">
+        5. Print an integer
+        <span class="icon">+</span>
+      </button>
+      <div class="qa-answer" aria-hidden="true">
+<pre>
+#include &lt;stdio.h&gt;
+int main() {
+    int num = 10;
+    printf("The integer is: %d\n", num);
+    return 0;
+}
+</pre>
+<div class="output">Output:<br>The integer is: 10</div>
+      </div>
+    </li>
+    <!-- 6 -->
+    <li class="qa-item">
+      <button class="qa-question" aria-expanded="false">
+        6. Add two integers
+        <span class="icon">+</span>
+      </button>
+      <div class="qa-answer" aria-hidden="true">
+<pre>
+#include &lt;stdio.h&gt;
+int main() {
+    int a = 5, b = 7;
+    int sum = a + b;
+    printf("Sum = %d\n", sum);
+    return 0;
+}
+</pre>
+<div class="output">Output:<br>Sum = 12</div>
+      </div>
+    </li>
+    <!-- 7 -->
+    <li class="qa-item">
+      <button class="qa-question" aria-expanded="false">
+        7. Sum &amp; average of 3 numbers
+        <span class="icon">+</span>
+      </button>
+      <div class="qa-answer" aria-hidden="true">
+<pre>
+#include &lt;stdio.h&gt;
+int main() {
+    int a = 4, b = 8, c = 12;
+    int sum = a + b + c;
+    float avg = sum / 3.0;
+    printf("Sum = %d, Average = %.2f\n", sum, avg);
+    return 0;
+}
+</pre>
+<div class="output">Output:<br>Sum = 24, Average = 8.00</div>
+      </div>
+    </li>
+    <!-- 8 -->
+    <li class="qa-item">
+      <button class="qa-question" aria-expanded="false">
+        8. Check if a number is positive or negative
+        <span class="icon">+</span>
+      </button>
+      <div class="qa-answer" aria-hidden="true">
+<pre>
+#include &lt;stdio.h&gt;
+int main() {
+    int num;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+    if(num > 0)
+        printf("Positive\n");
+    else if(num < 0)
+        printf("Negative\n");
+    else
+        printf("Zero\n");
+    return 0;
+}
+</pre>
+<div class="output">Sample Output:<br>Enter a number: 5<br>Positive</div>
+      </div>
+    </li>
+    <!-- 9 -->
+    <li class="qa-item">
+      <button class="qa-question" aria-expanded="false">
+        9. Swap 2 numbers using 3rd variable
+        <span class="icon">+</span>
+      </button>
+      <div class="qa-answer" aria-hidden="true">
+<pre>
+#include &lt;stdio.h&gt;
+int main() {
+    int a = 5, b = 10, temp;
+    temp = a;
+    a = b;
+    b = temp;
+    printf("a = %d, b = %d\n", a, b);
+    return 0;
+}
+</pre>
+<div class="output">Output:<br>a = 10, b = 5</div>
+      </div>
+    </li>
+    <!-- 10 -->
+    <li class="qa-item">
+      <button class="qa-question" aria-expanded="false">
+        10. Swap 2 numbers without 3rd variable
+        <span class="icon">+</span>
+      </button>
+      <div class="qa-answer" aria-hidden="true">
+<pre>
+#include &lt;stdio.h&gt;
+int main() {
+    int a = 5, b = 10;
+    a = a + b;
+    b = a - b;
+    a = a - b;
+    printf("a = %d, b = %d\n", a, b);
+    return 0;
+}
+</pre>
+<div class="output">Output:<br>a = 10, b = 5</div>
+      </div>
+    </li>
+    <!-- 11 -->
+    <li class="qa-item">
+      <button class="qa-question" aria-expanded="false">
+        11. Print size of different data types
+        <span class="icon">+</span>
+      </button>
+      <div class="qa-answer" aria-hidden="true">
+<pre>
+#include &lt;stdio.h&gt;
+int main() {
+    printf("Size of int: %lu bytes\n", sizeof(int));
+    printf("Size of float: %lu bytes\n", sizeof(float));
+    printf("Size of double: %lu bytes\n", sizeof(double));
+    printf("Size of char: %lu bytes\n", sizeof(char));
+    return 0;
+}
+</pre>
+<div class="output">Sample Output:<br>Size of int: 4 bytes<br>Size of float: 4 bytes<br>Size of double: 8 bytes<br>Size of char: 1 bytes</div>
+      </div>
+    </li>
+    <!-- 12 -->
+    <li class="qa-item">
+      <button class="qa-question" aria-expanded="false">
+        12. Read radius from user and print area of circle
+        <span class="icon">+</span>
+      </button>
+      <div class="qa-answer" aria-hidden="true">
+<pre>
+#include &lt;stdio.h&gt;
+#define PI 3.14159
+int main() {
+    float radius, area;
+    printf("Enter radius: ");
+    scanf("%f", &radius);
+    area = PI * radius * radius;
+    printf("Area = %.2f\n", area);
+    return 0;
+}
+</pre>
+<div class="output">Sample Output:<br>Enter radius: 2<br>Area = 12.57</div>
+      </div>
+    </li>
+    <!-- 13 -->
+    <li class="qa-item">
+      <button class="qa-question" aria-expanded="false">
+        13. Find whether a year is leap or not
+        <span class="icon">+</span>
+      </button>
+      <div class="qa-answer" aria-hidden="true">
+<pre>
+#include &lt;stdio.h&gt;
+int main() {
+    int year;
+    printf("Enter year: ");
+    scanf("%d", &year);
+    if((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0))
+        printf("Leap Year\n");
+    else
+        printf("Not a Leap Year\n");
+    return 0;
+}
+</pre>
+<div class="output">Sample Output:<br>Enter year: 2024<br>Leap Year</div>
+      </div>
+    </li>
+    <!-- 14 -->
+    <li class="qa-item">
+      <button class="qa-question" aria-expanded="false">
+        14. Check whether two numbers are equal or not
+        <span class="icon">+</span>
+      </button>
+      <div class="qa-answer" aria-hidden="true">
+<pre>
+#include &lt;stdio.h&gt;
+int main() {
+    int a, b;
+    printf("Enter two numbers: ");
+    scanf("%d %d", &a, &b);
+    if(a == b)
+        printf("Equal\n");
+    else
+        printf("Not Equal\n");
+    return 0;
+}
+</pre>
+<div class="output">Sample Output:<br>Enter two numbers: 5 5<br>Equal</div>
+      </div>
+    </li>
+    <!-- 15 -->
+    <li class="qa-item">
+      <button class="qa-question" aria-expanded="false">
+        15. Check whether a number is even or odd
+        <span class="icon">+</span>
+      </button>
+      <div class="qa-answer" aria-hidden="true">
+<pre>
+#include &lt;stdio.h&gt;
+int main() {
+    int num;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+    if(num % 2 == 0)
+        printf("Even\n");
+    else
+        printf("Odd\n");
+    return 0;
+}
+</pre>
+<div class="output">Sample Output:<br>Enter a number: 8<br>Even</div>
+      </div>
+    </li>
+    <!-- 16 -->
+    <li class="qa-item">
+      <button class="qa-question" aria-expanded="false">
+        16. Find greatest of 3 numbers using nested if-else
+        <span class="icon">+</span>
+      </button>
+      <div class="qa-answer" aria-hidden="true">
+<pre>
+#include &lt;stdio.h&gt;
+int main() {
+    int a, b, c;
+    printf("Enter three numbers: ");
+    scanf("%d %d %d", &a, &b, &c);
+    if(a > b) {
+        if(a > c)
+            printf("%d is greatest\n", a);
+        else
+            printf("%d is greatest\n", c);
+    } else {
+        if(b > c)
+            printf("%d is greatest\n", b);
+        else
+            printf("%d is greatest\n", c);
+    }
+    return 0;
+}
+</pre>
+<div class="output">Sample Output:<br>Enter three numbers: 7 2 9<br>9 is greatest</div>
+      </div>
+    </li>
+    <!-- 17 -->
+    <li class="qa-item">
+      <button class="qa-question" aria-expanded="false">
+        17. Find sum of n natural numbers
+        <span class="icon">+</span>
+      </button>
+      <div class="qa-answer" aria-hidden="true">
+<pre>
+#include &lt;stdio.h&gt;
+int main() {
+    int n, sum = 0;
+    printf("Enter n: ");
+    scanf("%d", &n);
+    for(int i = 1; i <= n; i++)
+        sum += i;
+    printf("Sum = %d\n", sum);
+    return 0;
+}
+</pre>
+<div class="output">Sample Output:<br>Enter n: 5<br>Sum = 15</div>
+      </div>
+    </li>
+    <!-- 18 -->
+    <li class="qa-item">
+      <button class="qa-question" aria-expanded="false">
+        18. Simple calculator using switch case
+        <span class="icon">+</span>
+      </button>
+      <div class="qa-answer" aria-hidden="true">
+<pre>
+#include &lt;stdio.h&gt;
+int main() {
+    int a, b;
+    char op;
+    printf("Enter two numbers: ");
+    scanf("%d %d", &a, &b);
+    printf("Enter operator (+, -, *, /): ");
+    scanf(" %c", &op);
+    switch(op) {
+        case '+': printf("Sum = %d\n", a + b); break;
+        case '-': printf("Difference = %d\n", a - b); break;
+        case '*': printf("Product = %d\n", a * b); break;
+        case '/': 
+            if(b != 0)
+                printf("Quotient = %.2f\n", (float)a / b);
+            else
+                printf("Division by zero error!\n");
+            break;
+        default: printf("Invalid operator\n");
+    }
+    return 0;
+}
+</pre>
+<div class="output">Sample Output:<br>Enter two numbers: 8 2<br>Enter operator (+, -, *, /): *<br>Product = 16</div>
+      </div>
+    </li>
+    <!-- 19 -->
+    <li class="qa-item">
+      <button class="qa-question" aria-expanded="false">
+        19. Find factorial of a given number
+        <span class="icon">+</span>
+      </button>
+      <div class="qa-answer" aria-hidden="true">
+<pre>
+#include &lt;stdio.h&gt;
+int main() {
+    int n, fact = 1;
+    printf("Enter a number: ");
+    scanf("%d", &n);
+    for(int i = 1; i <= n; i++)
+        fact *= i;
+    printf("Factorial = %d\n", fact);
+    return 0;
+}
+</pre>
+<div class="output">Sample Output:<br>Enter a number: 5<br>Factorial = 120</div>
+      </div>
+    </li>
+    <!-- 20 -->
+    <li class="qa-item">
+      <button class="qa-question" aria-expanded="false">
+        20. Print sum of even &amp; odd numbers from 1 to n
+        <span class="icon">+</span>
+      </button>
+      <div class="qa-answer" aria-hidden="true">
+<pre>
+#include &lt;stdio.h&gt;
+int main() {
+    int n, even = 0, odd = 0;
+    printf("Enter n: ");
+    scanf("%d", &n);
+    for(int i = 1; i <= n; i++) {
+        if(i % 2 == 0)
+            even += i;
+        else
+            odd += i;
+    }
+    printf("Sum of even = %d\nSum of odd = %d\n", even, odd);
+    return 0;
+}
+</pre>
+<div class="output">Sample Output:<br>Enter n: 5<br>Sum of even = 6<br>Sum of odd = 9</div>
+      </div>
+    </li>
+    <!-- 21 -->
+    <li class="qa-item">
+      <button class="qa-question" aria-expanded="false">
+        21. Print Fibonacci series<br>
+        <small>(Fibonacci series: Each number is the sum of the two preceding ones, starting from 0 and 1.)</small>
+        <span class="icon">+</span>
+      </button>
+      <div class="qa-answer" aria-hidden="true">
+<pre>
+#include &lt;stdio.h&gt;
+int main() {
+    int n, a = 0, b = 1, next;
+    printf("Enter number of terms: ");
+    scanf("%d", &n);
+    printf("Fibonacci Series: %d %d ", a, b);
+    for(int i = 3; i <= n; i++) {
+        next = a + b;
+        printf("%d ", next);
+        a = b;
+        b = next;
+    }
+    printf("\n");
+    return 0;
+}
+</pre>
+<div class="output">Sample Output:<br>Enter number of terms: 6<br>Fibonacci Series: 0 1 1 2 3 5</div>
+      </div>
+    </li>
+    <!-- 22 -->
+    <li class="qa-item">
+      <button class="qa-question" aria-expanded="false">
+        22. Check Armstrong number<br>
+        <small>(Armstrong number: sum of its own digits each raised to the power of number of digits equals the number itself. E.g., 153 = 1³ + 5³ + 3³ = 153)</small>
+        <span class="icon">+</span>
+      </button>
+      <div class="qa-answer" aria-hidden="true">
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
+int main() {
+    int num, temp, sum = 0, digit, n = 0;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+    temp = num;
+    // Count digits
+    while(temp != 0) {
+        temp /= 10;
+        n++;
+    }
+    temp = num;
+    while(temp != 0) {
+        digit = temp % 10;
+        sum += pow(digit, n);
+        temp /= 10;
+    }
+    if(sum == num)
+        printf("Armstrong number\n");
+    else
+        printf("Not an Armstrong number\n");
+    return 0;
+}
+</pre>
+<div class="output">Sample Output:<br>Enter a number: 153<br>Armstrong number</div>
+      </div>
+    </li>
+    <!-- 23 -->
+    <li class="qa-item">
+      <button class="qa-question" aria-expanded="false">
+        23. Check prime number using function
+        <span class="icon">+</span>
+      </button>
+      <div class="qa-answer" aria-hidden="true">
+<pre>
+#include &lt;stdio.h&gt;
+int isPrime(int n) {
+    if(n <= 1) return 0;
+    for(int i = 2; i <= n/2; i++)
+        if(n % i == 0)
+            return 0;
+    return 1;
+}
+int main() {
+    int num;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+    if(isPrime(num))
+        printf("Prime number\n");
+    else
+        printf("Not a prime number\n");
+    return 0;
+}
+</pre>
+<div class="output">Sample Output:<br>Enter a number: 13<br>Prime number</div>
+      </div>
+    </li>
+    <!-- 24 -->
+    <li class="qa-item">
+      <button class="qa-question" aria-expanded="false">
+        24. Reverse a number
+        <span class="icon">+</span>
+      </button>
+      <div class="qa-answer" aria-hidden="true">
+<pre>
+#include &lt;stdio.h&gt;
+int main() {
+    int num, rev = 0, digit;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+    while(num != 0) {
+        digit = num % 10;
+        rev = rev * 10 + digit;
+        num /= 10;
+    }
+    printf("Reversed number = %d\n", rev);
+    return 0;
+}
+</pre>
+<div class="output">Sample Output:<br>Enter a number: 1234<br>Reversed number = 4321</div>
+      </div>
+    </li>
+    <!-- 25 -->
+    <li class="qa-item">
+      <button class="qa-question" aria-expanded="false">
+        25. Sum of array elements
+        <span class="icon">+</span>
+      </button>
+      <div class="qa-answer" aria-hidden="true">
+<pre>
+#include &lt;stdio.h&gt;
+int main() {
+    int n, sum = 0;
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+    int arr[n];
+    printf("Enter elements:\n");
+    for(int i = 0; i &lt; n; i++) {
+        scanf("%d", &arr[i]);
+        sum += arr[i];
+    }
+    printf("Sum = %d\n", sum);
+    return 0;
+}
+</pre>
+<div class="output">Sample Output:<br>Enter number of elements: 3<br>Enter elements:<br>10 20 30<br>Sum = 60</div>
+      </div>
+    </li>
+    <!-- 26 -->
+    <li class="qa-item">
+      <button class="qa-question" aria-expanded="false">
+        26. Bubble Sort: Sort an array in ascending order
+        <span class="icon">+</span>
+      </button>
+      <div class="qa-answer" aria-hidden="true">
+<pre>
+#include &lt;stdio.h&gt;
+int main() {
+    int a[5], i, j, temp;
+
+    // Ask the user to enter the array elements
+    printf("Enter array elements: ");
+    for(i = 0; i &lt; 5; i++) {
+        scanf("%d", &a[i]);
+    }
+
+    // Bubble sort logic to sort the array in ascending order
+    for(i = 0; i &lt; 5; i++) {
+        for(j = i + 1; j &lt; 5; j++) {
+            if(a[i] &gt; a[j]) {
+                temp = a[i];
+                a[i] = a[j];
+                a[j] = temp;
+            }
+        }
+    }
+
+    // Print the sorted array
+    printf("Sorted array elements: ");
+    for(i = 0; i &lt; 5; i++) {
+        printf("%d ", a[i]);
+    }
+    return 0;
+}
+</pre>
+<div class="output">
+Sample Output:<br>
+Enter array elements: 5 2 8 1 4<br>
+Sorted array elements: 1 2 4 5 8
+</div>
+      </div>
+    </li>
+    <!-- 27 -->
+    <li class="qa-item">
+      <button class="qa-question" aria-expanded="false">
+        27. Linear Search: Find an element in an array
+        <span class="icon">+</span>
+      </button>
+      <div class="qa-answer" aria-hidden="true">
+<pre>
+#include &lt;stdio.h&gt;
+int a[5] = {10, 20, 30, 40, 50}, i = 0, item;
+int main() {
+    printf("Input searching item: ");
+    scanf("%d", &item);
+    while (i &lt; 5) {
+        if (a[i] == item) {
+            printf("Item found at location = %d\n", i);
+            break;
+        }
+        i++;
+    }
+    if (i &gt;= 5) {
+        printf("Item not found\n");
+    }
+    return 0;
+}
+</pre>
+<div class="output">
+Sample Output 1:<br>
+Input searching item: 30<br>
+Item found at location = 2<br><br>
+Sample Output 2:<br>
+Input searching item: 99<br>
+Item not found
+</div>
+      </div>
+    </li>
+  </ul>
+</div>
+<script>
+  // Accordion toggle with smooth animation and icon toggle
+  document.querySelectorAll('.qa-question').forEach(button => {
+    button.addEventListener('click', () => {
+      const answer = button.nextElementSibling;
+      const isOpen = answer.classList.contains('open');
+
+      // Close all open answers
+      document.querySelectorAll('.qa-answer.open').forEach(openAnswer => {
+        if(openAnswer !== answer) {
+          openAnswer.classList.remove('open');
+          openAnswer.previousElementSibling.classList.remove('active');
+          openAnswer.previousElementSibling.setAttribute('aria-expanded', 'false');
+          openAnswer.setAttribute('aria-hidden', 'true');
+          openAnswer.previousElementSibling.querySelector('.icon').textContent = '+';
+        }
+      });
+
+      if (isOpen) {
+        answer.classList.remove('open');
+        button.classList.remove('active');
+        button.setAttribute('aria-expanded', 'false');
+        answer.setAttribute('aria-hidden', 'true');
+        button.querySelector('.icon').textContent = '+';
+      } else {
+        answer.classList.add('open');
+        button.classList.add('active');
+        button.setAttribute('aria-expanded', 'true');
+        answer.setAttribute('aria-hidden', 'false');
+        button.querySelector('.icon').textContent = '−';
+      }
+    });
+  });
+</script>
+</body>
+</html>
